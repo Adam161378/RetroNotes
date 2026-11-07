@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>RetroNotes</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>RetroNotes</h1>
+            <p>Zapisuj, organizuj i wyszukuj swoje notatki.</p>
+        </header>
+
+        <section class="leftSide">
+            <h2>Dodaj notatkę</h2>
+
+            <form>
+                <label for="tytul">Tytuł:</label>
+                <input type="text" id="tytul" name="tytul"
+                    placeholder="Podaj tytuł...">
+
+                <label for="tresc">Treść notatki:</label>
+                <textarea name="tresc" id="tresc"></textarea>
+
+                <label for="kategoria">Kategoria:</label>
+                <select name="kategoria" id="kategoria">
+                    <option value="">Wybierz kategorię</option>
+                    <option value="DOM">Dom</option>
+                    <option value="PRACA">Praca</option>
+                    <option value="SZKOLA">Szkoła</option>
+                    <option value="ZAKUPY">Zakupy</option>
+                    <option value="FINANSE">Finanse</option>
+                    <option value="ZDROWIE">Zdrowie</option>
+                    <option value="INNE">Inne</option>
+                </select>
+
+                <button type="submit">Dodaj notatkę</button>
+            </form>
+        </section>
+
+        <section class="rightSide">
+            <h2>Wyszukaj i filtruj</h2>
+
+            <form>
+                <label for="szukajDanych">Szukaj notatek:</label>
+                <input type="search" name="szukajDanych" id="szukajDanych">
+
+                <label for="filtrujKategorie">Filtruj kategorię:</label>
+                <select name="filtrujKategorie" id="filtrujKategorie">
+                    <option value="">Wszystkie kategorie</option>
+                    <option value="DOM">Dom</option>
+                    <option value="PRACA">Praca</option>
+                    <option value="SZKOLA">Szkoła</option>
+                    <option value="ZAKUPY">Zakupy</option>
+                    <option value="FINANSE">Finanse</option>
+                    <option value="ZDROWIE">Zdrowie</option>
+                    <option value="INNE">Inne</option>
+                </select>
+            </form>
+        </section>
+
+        <section class="notesSide">
+            <h2>Twoje notatki</h2>
+
+            <div class="tablica">
+                <div class="notatka">
+                    <h3>Nauka HTML i CSS</h3>
+                    <span>SZKOŁA</span>
+                    <p>Powtórzyć selektory CSS, Flexbox i podstawy jQuery.</p>
+                    <button>Edytuj</button>
+                    <button>Usuń</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; RetroNotes | ADAM SADOWSKI</p>
+        </footer>
+
+    </div>
+</body>
+</html>
