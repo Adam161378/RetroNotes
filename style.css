@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #B8E8F5;
+    background-color: #E9E1D2;
     margin: 0;
     padding: 20px;
 }
@@ -28,9 +28,9 @@ body {
     width: 100%;
     text-align: center;
     padding: 10px;
-    color: #FFF1C1;
-    background-color: #6C63A8;
-    border: 3px solid #00CED1;
+    color: #F5EBD8;
+    background-color: #66536F;
+    border: 3px solid #6F9993;
 }
 
 .header h1 {
@@ -39,7 +39,7 @@ body {
     margin-bottom: 10px;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #FFFF99;
+    color: #F2D58A;
 }
 
 .header p {
@@ -53,20 +53,20 @@ body {
 
 .leftSide,
 .rightSide {
-    color: #3B315B;
+    color: #443A4A;
     padding: 20px;
-    border: 3px solid #00CED1;
+    border: 3px solid #6F9993;
     border-radius: 4px;
 }
 
 .leftSide {
     grid-area: leftSide;
-    background-color: #FFF1C1;
+    background-color: #F5EBD8;
 }
 
 .rightSide {
     grid-area: rightSide;
-    background-color: #D8F5E5;
+    background-color: #E2EBDD;
 }
 
 .leftSide h2,
@@ -87,7 +87,7 @@ body {
 
 .leftSide label,
 .rightSide label {
-    color: #3B315B;
+    color: #443A4A;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -100,11 +100,11 @@ body {
 .rightSide select {
     width: 100%;
     padding: 10px;
-    border: 2px solid #00CED1;
+    border: 2px solid #6F9993;
     border-radius: 4px;
     font-size: 16px;
     background-color: #FFFFFF;
-    box-shadow: 2px 2px 3px rgba(59, 49, 91, 0.25);
+    box-shadow: 2px 2px 3px rgba(68, 58, 74, 0.25);
     outline: auto;
 }
 
@@ -113,29 +113,45 @@ body {
 .leftSide select:focus,
 .rightSide input:focus,
 .rightSide select:focus {
-    border-color: #6C63A8;
+    border-color: #66536F;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(108, 99, 168, 0.2);
+    box-shadow: 0 0 0 3px rgba(102, 83, 111, 0.2);
 }
 
+#pokazFormularz {
+    background-color: #6F9993;
+    color: #FFFFFF;
+    padding: 10px 18px;
+    border: 2px solid #66536F;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    box-shadow: 3px 3px 0 #66536F;
+}
 
+#pokazFormularz:hover {
+    background-color: #E9C96A;
+    color: #443A4A;
+}
 
-.leftSide button {
-    background-color: #FF7B54;
+.leftSide form button {
+    background-color: #D9826B;
     color: #FFFFFF;
     padding: 12px 20px;
-    border: 2px solid #6C63A8;
+    border: 2px solid #66536F;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease;
-    box-shadow: 3px 3px 0 #6C63A8;
+    box-shadow: 3px 3px 0 #66536F;
 }
 
 .leftSide button:hover {
-    background-color: #FFE066;
-    color: #3B315B;
+    background-color: #E9C96A;
+    color: #443A4A;
     transform: translateY(-2px);
 }
 
@@ -143,10 +159,10 @@ body {
 
 .notesSide {
     grid-area: notesSide;
-    background-color: #FFF1C1;
-    color: #3B315B;
+    background-color: #F5EBD8;
+    color: #443A4A;
     padding: 20px;
-    border: 3px solid #00CED1;
+    border: 3px solid #6F9993;
     border-radius: 4px;
 }
 
@@ -161,18 +177,25 @@ body {
 .notesSide .tablica {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
+    padding: 20px;
+    background-color: #B9855B;
+    border: 5px solid #76543F;
+    border-radius: 6px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 
 
 .notatka {
-    background-color: #D8F5E5;
-    color: #3B315B;
+    background-color: #E2EBDD;
+    color: #443A4A;
     padding: 15px;
-    border: 2px solid #9932CC;
+    border: 2px solid #B58A9A;
     border-radius: 4px;
     width: 250px;
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+    transform: rotate(-1deg);
 }
 
 .notatka h3 {
@@ -180,15 +203,15 @@ body {
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 10px;
-    color: #6C63A8;
+    color: #66536F;
 }
 
 .notatka span {
     font-size: 13px;
     font-weight: 700;
     padding: 5px 8px;
-    background-color: #00CED1;
-    color: #3B315B;
+    background-color: #6F9993;
+    color: #443A4A;
     border-radius: 4px;
 }
 
@@ -197,16 +220,16 @@ body {
     line-height: 1.5;
     margin-top: 15px;
     margin-bottom: 15px;
-    color: #3B315B;
+    color: #443A4A;
 }
 
 
 
 .notatka button {
-    background-color: #FF754F;
+    background-color: #D9826B;
     color: #FFFFFF;
     padding: 8px 12px;
-    border: 2px solid #6C63A8;
+    border: 2px solid #66536F;
     border-radius: 4px;
     font-size: 14px;
     font-weight: 600;
@@ -215,17 +238,17 @@ body {
 }
 
 .notatka button:hover {
-    background-color: #FFE066;
-    color: #3B315B;
+    background-color: #E9C96A;
+    color: #443A4A;
 }
 
 
 
 .footer {
     grid-area: footer;
-    background-color: #6C63A8;
-    color: #FFF1C1;
+    background-color: #66536F;
+    color: #F5EBD8;
     padding: 15px;
-    border: 3px solid #00CED1;
+    border: 3px solid #6F9993;
     text-align: center;
 }

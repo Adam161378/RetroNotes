@@ -12,7 +12,81 @@
 
     <title>RetroNotes</title>
 </head>
+<script>
+    $(function(){
+  let formularzWidoczny = false;
 
+$("#pokazFormularz").on("click", function(){
+
+    if(formularzWidoczny == false){
+
+        $("#formularzNotatki").show(1000);
+        $("#pokazFormularz").text("- Schowaj formularz");
+
+        formularzWidoczny = true;
+
+    } else {
+
+        $("#formularzNotatki").hide(1000);
+        $("#pokazFormularz").text("+ Dodaj notatkę");
+
+        formularzWidoczny = false;
+    }
+
+});
+
+$("#formularzNotatki").on("submit", function(e) {
+    e.preventDefault();
+
+    let tytul = $("#tytul").val().trim();
+    let tresc = $("#tresc").val().trim();
+    let kategoria = $("#kategoria").val();
+
+    let poprawny = true;
+
+
+    $("#bladTytulu").text("");
+    $("#bladTresci").text("");
+    $("#bladKategorii").text("");
+
+  
+    if (tytul === "") {
+        $("#bladTytulu").text("Tytuł nie może być pusty").css("color", "red");
+        poprawny = false;
+    } else if (tytul.length > 40) {
+        $("#bladTytulu").text("Tytuł nie może przekraczać 40 znaków").css("color", "red");
+        poprawny = false;
+    } else {
+        $("#bladTytulu").text("Zaakceptowano").css("color", "green");
+    }
+
+  
+    if (tresc === "") {
+        $("#bladTresci").text("Treść nie może być pusta").css("color", "red");
+        poprawny = false;
+    } else {
+        $("#bladTresci").text("Zaakceptowano").css("color", "green");
+    }
+
+ 
+    if (kategoria === "") {
+        $("#bladKategorii").text("Wybierz kategorię").css("color", "red");
+        poprawny = false;
+    } else {
+        $("#bladKategorii").text("Zaakceptowano").css("color", "green");
+    }
+
+
+    if (poprawny === false) {
+        return;
+    }
+
+    console.log("Formularz poprawny!");
+});
+
+      
+    })
+</script>
 <body>
     <div class="container">
 
@@ -23,14 +97,17 @@
 
         <section class="leftSide">
             <h2>Dodaj notatkę</h2>
-
-            <form>
+                <button type="button" id="pokazFormularz">+ Dodaj notatkę</button>
+           <form id="formularzNotatki" style="display: none;">
                 <label for="tytul">Tytuł:</label>
-                <input type="text" id="tytul" name="tytul"
-                    placeholder="Podaj tytuł...">
+                    <textarea name="tytul" id="tytul"></textarea>
+                     <p id="licznikTytulu"></p>
+                    <p id="bladTytulu"></p>
+                   
 
                 <label for="tresc">Treść notatki:</label>
                 <textarea name="tresc" id="tresc"></textarea>
+                <p id="bladTresci"></p>
 
                 <label for="kategoria">Kategoria:</label>
                 <select name="kategoria" id="kategoria">
@@ -43,8 +120,9 @@
                     <option value="ZDROWIE">Zdrowie</option>
                     <option value="INNE">Inne</option>
                 </select>
-
-                <button type="submit">Dodaj notatkę</button>
+                <p id="bladKategorii"></p>
+                
+                <button type="submit" id="addNote">ZAPISZ</button>
             </form>
         </section>
 
