@@ -231,6 +231,41 @@
 
             });
 
+           $("#tytul").on("input", function() {
+
+    let dlugoscTytulu = $(this).val().trim().length;
+
+    $("#licznikTytulu").text("Ilość znaków: " + dlugoscTytulu + "/40");
+
+    if (dlugoscTytulu > 40) {
+
+        $("#licznikTytulu").css("color", "red");
+
+        $("#bladTytulu")
+            .text("Przekroczono limit o " + (dlugoscTytulu - 40) + " znaków")
+            .css("color", "red");
+
+        $("#addNote").prop("disabled", true);
+
+    } else if (dlugoscTytulu > 0 && dlugoscTytulu <= 40) {
+
+        $("#licznikTytulu").css("color", "");
+
+        $("#bladTytulu")
+            .text("Zaakceptowano")
+            .css("color", "green");
+
+        $("#addNote").prop("disabled", false);
+
+    } else {
+
+        $("#licznikTytulu").css("color", "");
+        $("#bladTytulu").text("");
+
+        $("#addNote").prop("disabled", false);
+    }
+
+});
         });
     </script>
 
