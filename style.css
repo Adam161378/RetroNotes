@@ -1,4 +1,3 @@
-
 * {
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
@@ -20,8 +19,6 @@ body {
         "footer footer";
     gap: 15px;
 }
-
-
 
 .header {
     grid-area: header;
@@ -48,8 +45,6 @@ body {
     font-weight: 400;
     letter-spacing: 0.5px;
 }
-
-
 
 .leftSide,
 .rightSide {
@@ -155,8 +150,6 @@ body {
     transform: translateY(-2px);
 }
 
-
-
 .notesSide {
     grid-area: notesSide;
     background-color: #F5EBD8;
@@ -177,6 +170,7 @@ body {
 .notesSide .tablica {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     gap: 20px;
     padding: 20px;
     background-color: #B9855B;
@@ -185,65 +179,139 @@ body {
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .notatka {
-    background-color: #E2EBDD;
-    color: #443A4A;
-    padding: 15px;
-    border: 2px solid #B58A9A;
-    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     width: 250px;
-    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
-    transform: rotate(-1deg);
+    min-height: 220px;
+    padding: 20px;
+    border: 3px solid;
+    border-radius: 8px;
+    color: #30283A;
+    box-shadow: 8px 10px 18px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notatka:hover {
+    transform: translateY(-7px) rotate(1deg);
+    box-shadow: 12px 16px 24px rgba(0, 0, 0, 0.5);
 }
 
 .notatka h3 {
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #66536F;
+    margin: 0;
+    color: #30283A;
 }
 
 .notatka span {
-    font-size: 13px;
+    align-self: flex-start;
+    font-size: 12px;
     font-weight: 700;
-    padding: 5px 8px;
-    background-color: #6F9993;
-    color: #443A4A;
-    border-radius: 4px;
+    padding: 6px 10px;
+    border-radius: 5px;
 }
 
 .notatka p {
     font-size: 15px;
     line-height: 1.5;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    color: #443A4A;
+    margin: 0;
+    overflow-wrap: break-word;
 }
 
-
-
 .notatka button {
-    background-color: #D9826B;
-    color: #FFFFFF;
-    padding: 8px 12px;
-    border: 2px solid #66536F;
-    border-radius: 4px;
-    font-size: 14px;
+    background-color: #493653;
+    color: white;
+    padding: 9px 13px;
+    border: 1px solid #30283A;
+    border-radius: 5px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    margin-right: 8px;
+    margin-right: 5px;
 }
 
 .notatka button:hover {
-    background-color: #E9C96A;
-    color: #443A4A;
+    background-color: #B94F65;
 }
 
+.notatka.szkola {
+    background-color: #FFE58A;
+    border-color: #D6A900;
+    transform: rotate(-2deg);
+}
 
+.notatka.szkola span {
+    background-color: #D6A900;
+    color: #30283A;
+}
 
+.notatka.dom {
+    background-color: #A9E5CF;
+    border-color: #419B79;
+    transform: rotate(2deg);
+}
+
+.notatka.dom span {
+    background-color: #419B79;
+    color: white;
+}
+
+.notatka.praca {
+    background-color: #D6B8F0;
+    border-color: #9061B5;
+    transform: rotate(-1.5deg);
+}
+
+.notatka.praca span {
+    background-color: #9061B5;
+    color: white;
+}
+
+.notatka.zakupy {
+    background-color: #FFB6A3;
+    border-color: #D66A50;
+    transform: rotate(1.5deg);
+}
+
+.notatka.zakupy span {
+    background-color: #D66A50;
+    color: white;
+}
+
+.notatka.finanse {
+    background-color: #B8C8FF;
+    border-color: #657BC7;
+    transform: rotate(-1deg);
+}
+
+.notatka.finanse span {
+    background-color: #657BC7;
+    color: white;
+}
+
+.notatka.zdrowie {
+    background-color: #FFB8C8;
+    border-color: #D66B88;
+    transform: rotate(2deg);
+}
+
+.notatka.zdrowie span {
+    background-color: #D66B88;
+    color: white;
+}
+
+.notatka.inne {
+    background-color: #D5D0C5;
+    border-color: #898273;
+    transform: rotate(-2deg);
+}
+
+.notatka.inne span {
+    background-color: #898273;
+    color: white;
+}
 .footer {
     grid-area: footer;
     background-color: #66536F;
