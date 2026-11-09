@@ -1,4 +1,4 @@
-* {
+*{
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
@@ -184,13 +184,15 @@ body {
     flex-direction: column;
     gap: 12px;
     width: 250px;
+    max-width: 100%;
+    min-width: 0;
     min-height: 220px;
+    height: auto;
     padding: 20px;
     border: 3px solid;
     border-radius: 8px;
     color: #30283A;
     box-shadow: 8px 10px 18px rgba(0, 0, 0, 0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .notatka:hover {
@@ -203,6 +205,8 @@ body {
     font-weight: 700;
     margin: 0;
     color: #30283A;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .notatka span {
@@ -312,6 +316,7 @@ body {
     background-color: #898273;
     color: white;
 }
+
 .footer {
     grid-area: footer;
     background-color: #66536F;

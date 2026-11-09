@@ -25,7 +25,9 @@
             <p>Zapisuj, organizuj i wyszukuj swoje notatki.</p>
         </header>
 
+
         <section class="leftSide">
+
             <h2>Dodaj notatkę</h2>
 
             <button type="button" id="pokazFormularz">
@@ -35,15 +37,30 @@
             <form id="formularzNotatki" style="display: none;">
 
                 <label for="tytul">Tytuł:</label>
-                <input type="text" name="tytul" id="tytul">
-                <p id="licznikTytulu"></p>
+                <input
+                    type="text"
+                    name="tytul"
+                    id="tytul"
+                    maxlength="40"
+                >
+
+                <p id="licznikTytulu">0/40</p>
                 <p id="bladTytulu"></p>
 
+
                 <label for="tresc">Treść notatki:</label>
-                <textarea name="tresc" id="tresc"></textarea>
+                <textarea
+                    name="tresc"
+                    id="tresc"
+                    maxlength="500"
+                    rows="5"
+                ></textarea>
+
                 <p id="bladTresci"></p>
 
+
                 <label for="kategoria">Kategoria:</label>
+
                 <select name="kategoria" id="kategoria">
                     <option value="">Wybierz kategorię</option>
                     <option value="DOM">Dom</option>
@@ -57,25 +74,33 @@
 
                 <p id="bladKategorii"></p>
 
+
                 <button type="submit" id="addNote">
                     ZAPISZ
                 </button>
 
             </form>
+
         </section>
 
+
         <section class="rightSide">
+
             <h2>Wyszukaj i filtruj</h2>
 
-            <form>
+            <div>
+
                 <label for="szukajDanych">Szukaj notatek:</label>
+
                 <input
                     type="search"
                     name="szukajDanych"
                     id="szukajDanych"
                 >
 
+
                 <label for="filtrujKategorie">Filtruj kategorię:</label>
+
                 <select name="filtrujKategorie" id="filtrujKategorie">
                     <option value="">Wszystkie kategorie</option>
                     <option value="DOM">Dom</option>
@@ -86,28 +111,42 @@
                     <option value="ZDROWIE">Zdrowie</option>
                     <option value="INNE">Inne</option>
                 </select>
-            </form>
+
+            </div>
+
         </section>
 
+
         <section class="notesSide">
+
             <h2>Twoje notatki</h2>
 
             <div class="tablica">
 
                 <div class="notatka szkola">
+
                     <h3>Nauka HTML i CSS</h3>
+
                     <span>SZKOŁA</span>
 
                     <p>
                         Powtórzyć selektory CSS, Flexbox i podstawy jQuery.
                     </p>
 
-                    <button type="button">Edytuj</button>
-                    <button type="button">Usuń</button>
+                    <button type="button" class="edycja">
+                        Edytuj
+                    </button>
+
+                    <button type="button" class="usun">
+                        Usuń
+                    </button>
+
                 </div>
 
             </div>
+
         </section>
+
 
         <footer class="footer">
             <p>&copy; RetroNotes | ADAM SADOWSKI</p>
@@ -115,204 +154,8 @@
 
     </div>
 
-    <script>
-        $(function() {
 
-            let formularzWidoczny = false;
-
-            $("#pokazFormularz").on("click", function() {
-
-                if (formularzWidoczny == false) {
-
-                    $("#formularzNotatki").show(1000);
-                    $("#pokazFormularz").text("- Schowaj formularz");
-
-                    formularzWidoczny = true;
-
-                } else {
-
-                    $("#formularzNotatki").hide(1000);
-                    $("#pokazFormularz").text("+ Dodaj notatkę");
-
-                    formularzWidoczny = false;
-                }
-
-            });
-
-
-            $("#formularzNotatki").on("submit", function(e) {
-
-                e.preventDefault();
-
-                let tytul = $("#tytul").val().trim();
-                let tresc = $("#tresc").val().trim();
-                let kategoria = $("#kategoria").val();
-                let nazwaKategorii = $("#kategoria option:selected").text();
-
-                let poprawny = true;
-
-                $("#bladTytulu").text("");
-                $("#bladTresci").text("");
-                $("#bladKategorii").text("");
-
-
-                if (tytul === "") {
-
-                    $("#bladTytulu")
-                        .text("Tytuł nie może być pusty")
-                        .css("color", "red");
-
-                    poprawny = false;
-
-                } else if (tytul.length > 40) {
-
-                    $("#bladTytulu")
-                        .text("Tytuł nie może przekraczać 40 znaków")
-                        .css("color", "red");
-
-                    poprawny = false;
-
-                } else {
-
-                    $("#bladTytulu")
-                        .text("Zaakceptowano")
-                        .css("color", "green");
-                }
-
-
-                if (tresc === "") {
-
-                    $("#bladTresci")
-                        .text("Treść nie może być pusta")
-                        .css("color", "red");
-
-                    poprawny = false;
-
-                } else {
-
-                    $("#bladTresci")
-                        .text("Zaakceptowano")
-                        .css("color", "green");
-                }
-
-
-                if (kategoria === "") {
-
-                    $("#bladKategorii")
-                        .text("Wybierz kategorię")
-                        .css("color", "red");
-
-                    poprawny = false;
-
-                } else {
-
-                    $("#bladKategorii")
-                        .text("Zaakceptowano")
-                        .css("color", "green");
-                }
-
-
-                if (poprawny === false) {
-                    return;
-                }
-
-
-                let nowaNotatka = $("<div>");
-
-                nowaNotatka.addClass("notatka");
-                nowaNotatka.addClass(kategoria.toLowerCase());
-
-
-                let tytulNotatki = $("<h3>");
-
-                tytulNotatki.text(tytul);
-
-                nowaNotatka.append(tytulNotatki);
-
-
-                let kategoriaNotatki = $("<span>");
-
-                kategoriaNotatki.text(nazwaKategorii);
-
-                nowaNotatka.append(kategoriaNotatki);
-
-
-                let trescNotatki = $("<p>");
-
-                trescNotatki.text(tresc);
-
-                nowaNotatka.append(trescNotatki);
-
-
-                let buttonEdycji = $("<button>");
-
-                buttonEdycji.attr("type", "button");
-                buttonEdycji.text("Edytuj");
-
-                nowaNotatka.append(buttonEdycji);
-
-
-                let buttonUsuwania = $("<button>");
-
-                buttonUsuwania.attr("type", "button");
-                buttonUsuwania.text("Usuń");
-
-                nowaNotatka.append(buttonUsuwania);
-
-
-                $(".tablica").append(nowaNotatka);
-
-
-                $("#tytul").val("");
-                $("#tresc").val("");
-                $("#kategoria").val("");
-                $("#licznikTytulu").text("");
-
-                $("#bladTytulu").text("");
-                $("#bladTresci").text("");
-                $("#bladKategorii").text("");
-
-            });
-
-
-            $("#tytul").on("input", function() {
-
-                let dlugoscTytulu = $(this).val().trim().length;
-
-                $("#licznikTytulu").text("Ilość znaków: " + dlugoscTytulu + "/40");
-
-                if (dlugoscTytulu > 40) {
-
-                    $("#licznikTytulu").css("color", "red");
-
-                    $("#bladTytulu")
-                        .text("Przekroczono limit o " + (dlugoscTytulu - 40) + " znaków")
-                        .css("color", "red");
-
-                    $("#addNote").prop("disabled", true);
-
-                } else if (dlugoscTytulu > 0 && dlugoscTytulu <= 40) {
-
-                    $("#licznikTytulu").css("color", "");
-
-                    $("#bladTytulu")
-                        .text("Zaakceptowano")
-                        .css("color", "green");
-
-                    $("#addNote").prop("disabled", false);
-
-                } else {
-
-                    $("#licznikTytulu").css("color", "");
-                    $("#bladTytulu").text("");
-
-                    $("#addNote").prop("disabled", false);
-                }
-
-            });
-
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
