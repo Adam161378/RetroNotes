@@ -154,4 +154,36 @@ $(function() {
             $("#bladKategorii").text("Wybierz kategorię").css("color", "red");
         }
     });
+    
+$("#szukajDanych").on("input", function(){
+    let szukanaFraza = $(this).val().trim().toLowerCase();
+
+    $(".notatka").each(function(){
+        let tekstNotatki = $(this).text().toLowerCase();
+
+        if(tekstNotatki.includes(szukanaFraza)){
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+});
+
+$("#filtrujKategorie").on("change", function(){
+    let kategoria = $(this).val().toLowerCase();
+
+    $(".notatka").each(function(){
+        let klasy = $(this).attr("class").toLowerCase();
+
+        if (kategoria === "" || kategoria === "wszystkie") {
+            $(this).show();
+        } else {
+            if (klasy.includes(kategoria)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        }
+    });
+});
 });
