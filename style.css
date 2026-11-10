@@ -1,15 +1,19 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
+
+* {
     box-sizing: border-box;
 }
 
 body {
-    background-color: #E9E1D2;
     margin: 0;
     padding: 20px;
+    background-color: #E9E1D2;
+    font-family: Arial, sans-serif;
+    color: #443A4A;
 }
 
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -22,228 +26,245 @@ body {
 
 .header {
     grid-area: header;
-    width: 100%;
+    background-color: #55445F;
+    color: #F2D58A;
+    padding: 20px;
     text-align: center;
-    padding: 10px;
-    color: #F5EBD8;
-    background-color: #66536F;
     border: 3px solid #6F9993;
+    border-radius: 8px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoIcon {
+    font-size: 32px;
 }
 
 .header h1 {
-    font-size: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: #F2D58A;
+    margin: 5px 0;
+    font-size: 36px;
 }
 
 .header p {
-    font-size: 16px;
-    margin-top: 0;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
-.leftSide,
-.rightSide {
-    color: #443A4A;
-    padding: 20px;
-    border: 3px solid #6F9993;
-    border-radius: 4px;
+    margin: 5px 0 0;
+    color: #FFFFFF;
 }
 
 .leftSide {
     grid-area: leftSide;
-    background-color: #F5EBD8;
+    background-color: #F8F0E1;
+    padding: 20px;
+    border: 3px solid #6F9993;
+    border-radius: 8px;
 }
 
 .rightSide {
     grid-area: rightSide;
     background-color: #E2EBDD;
-}
-
-.leftSide h2,
-.rightSide h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-}
-
-.leftSide form,
-.rightSide form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.leftSide label,
-.rightSide label {
-    color: #443A4A;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.leftSide textarea,
-.leftSide input,
-.leftSide select,
-.rightSide input,
-.rightSide select {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #6F9993;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: #FFFFFF;
-    box-shadow: 2px 2px 3px rgba(68, 58, 74, 0.25);
-    outline: auto;
-}
-
-.leftSide textarea:focus,
-.leftSide input:focus,
-.leftSide select:focus,
-.rightSide input:focus,
-.rightSide select:focus {
-    border-color: #66536F;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(102, 83, 111, 0.2);
-}
-
-#pokazFormularz {
-    background-color: #6F9993;
-    color: #FFFFFF;
-    padding: 10px 18px;
-    border: 2px solid #66536F;
-    border-radius: 4px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 15px;
-    box-shadow: 3px 3px 0 #66536F;
-}
-
-#pokazFormularz:hover {
-    background-color: #E9C96A;
-    color: #443A4A;
-}
-
-.leftSide form button {
-    background-color: #D9826B;
-    color: #FFFFFF;
-    padding: 12px 20px;
-    border: 2px solid #66536F;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s ease;
-    box-shadow: 3px 3px 0 #66536F;
-}
-
-.leftSide button:hover {
-    background-color: #E9C96A;
-    color: #443A4A;
-    transform: translateY(-2px);
+    padding: 20px;
+    border: 3px solid #6F9993;
+    border-radius: 8px;
 }
 
 .notesSide {
     grid-area: notesSide;
-    background-color: #F5EBD8;
-    color: #443A4A;
+    background-color: #F8F0E1;
     padding: 20px;
     border: 3px solid #6F9993;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
-.notesSide h2 {
-    font-size: 24px;
-    font-weight: 600;
+h2 {
     margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
+    color: #55445F;
 }
 
-.notesSide .tablica {
+.opisSekcji {
+    color: #554B5C;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+form, .filtry {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #8BA99C;
+    border-radius: 4px;
+    background-color: #FFFCF5;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #66536F;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.poleTytulu {
+    position: relative;
+}
+
+#licznikTytulu {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    font-size: 12px;
+    color: #66536F;
+    font-weight: bold;
+}
+
+.poleWyszukiwania {
+    position: relative;
+    width: 100%;
+}
+
+.poleWyszukiwania input {
+    padding-left: 40px;
+}
+
+.ikonaPola {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #66536F;
+    pointer-events: none;
+}
+
+button {
+    padding: 10px;
+    background-color: #66536F;
+    color: white;
+    border: 2px solid #493D50;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #80698B;
+}
+
+#pokazFormularz {
+    background-color: #6F9993;
+}
+
+#addNote {
+    background-color: #D9826B;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.naglowekNotatek {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.statystyka {
+    padding: 8px 12px;
+    background-color: #E9D9B7;
+    border: 2px solid #B9855B;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.tablica {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
-    background-color: #B9855B;
-    border: 5px solid #76543F;
-    border-radius: 6px;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+    background-color: #E9E1D2;
+    border: 2px dashed #B9855B;
+    border-radius: 8px;
 }
 
 .notatka {
+    min-width: 0;
+    width: 100%;
+    min-height: 220px;
+    padding: 15px;
+    border: 2px solid;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 250px;
-    max-width: 100%;
-    min-width: 0;
-    min-height: 220px;
-    height: auto;
-    padding: 20px;
-    border: 3px solid;
-    border-radius: 8px;
-    color: #30283A;
-    box-shadow: 8px 10px 18px rgba(0, 0, 0, 0.4);
-}
-
-.notatka:hover {
-    transform: translateY(-7px) rotate(1deg);
-    box-shadow: 12px 16px 24px rgba(0, 0, 0, 0.5);
+    gap: 10px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+    overflow-wrap: anywhere;
 }
 
 .notatka h3 {
-    font-size: 21px;
-    font-weight: 700;
     margin: 0;
-    color: #30283A;
-    overflow-wrap: break-word;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.notatka p {
+    margin: 0;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
     word-break: break-word;
 }
 
 .notatka span {
     align-self: flex-start;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 10px;
-    border-radius: 5px;
-}
-
-.notatka p {
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 0;
-    overflow-wrap: break-word;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
 }
 
 .notatka button {
-    background-color: #493653;
-    color: white;
-    padding: 9px 13px;
-    border: 1px solid #30283A;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-right: 5px;
+    width: 100%;
+    margin-top: 2px;
 }
 
-.notatka button:hover {
-    background-color: #B94F65;
+.notatka .edycja {
+    background-color: #66536F;
+}
+
+.notatka .usun {
+    background-color: #B85D58;
+}
+
+.notatka:hover {
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .notatka.szkola {
     background-color: #FFE58A;
     border-color: #D6A900;
-    transform: rotate(-2deg);
 }
 
 .notatka.szkola span {
@@ -254,74 +275,69 @@ body {
 .notatka.dom {
     background-color: #A9E5CF;
     border-color: #419B79;
-    transform: rotate(2deg);
 }
 
 .notatka.dom span {
     background-color: #419B79;
-    color: white;
+    color: #FFFFFF;
 }
 
 .notatka.praca {
     background-color: #D6B8F0;
     border-color: #9061B5;
-    transform: rotate(-1.5deg);
 }
 
 .notatka.praca span {
     background-color: #9061B5;
-    color: white;
+    color: #FFFFFF;
 }
 
 .notatka.zakupy {
     background-color: #FFB6A3;
     border-color: #D66A50;
-    transform: rotate(1.5deg);
 }
 
 .notatka.zakupy span {
     background-color: #D66A50;
-    color: white;
+    color: #FFFFFF;
 }
 
 .notatka.finanse {
     background-color: #B8C8FF;
     border-color: #657BC7;
-    transform: rotate(-1deg);
 }
 
 .notatka.finanse span {
     background-color: #657BC7;
-    color: white;
+    color: #FFFFFF;
 }
 
 .notatka.zdrowie {
     background-color: #FFB8C8;
     border-color: #D66B88;
-    transform: rotate(2deg);
 }
 
 .notatka.zdrowie span {
     background-color: #D66B88;
-    color: white;
+    color: #FFFFFF;
 }
 
 .notatka.inne {
     background-color: #D5D0C5;
     border-color: #898273;
-    transform: rotate(-2deg);
 }
 
 .notatka.inne span {
     background-color: #898273;
-    color: white;
+    color: #FFFFFF;
 }
 
 .footer {
     grid-area: footer;
-    background-color: #66536F;
-    color: #F5EBD8;
+    background-color: #55445F;
+    color: white;
+    text-align: center;
     padding: 15px;
     border: 3px solid #6F9993;
-    text-align: center;
+    border-radius: 8px;
 }

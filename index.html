@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RetroNotes | Organizer notatek</title>
+
+    <link rel="stylesheet" href="style.css">
 
     <script
         src="https://code.jquery.com/jquery-4.0.0.min.js"
         integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
         crossorigin="anonymous">
     </script>
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>RetroNotes</title>
 </head>
 
 <body>
@@ -21,45 +22,65 @@
     <div class="container">
 
         <header class="header">
-            <h1>RetroNotes</h1>
-            <p>Zapisuj, organizuj i wyszukuj swoje notatki.</p>
+
+            <div class="logo">
+                <span class="logoIcon">✎</span>
+                <h1>RetroNotes</h1>
+            </div>
+
+            <p>Twoja przestrzeń na pomysły, plany i ważne informacje.</p>
+
         </header>
 
 
         <section class="leftSide">
 
-            <h2>Dodaj notatkę</h2>
+            <h2>Utwórz nową notatkę</h2>
+
+            <p class="opisSekcji">
+                Zapisz swoje pomysły i uporządkuj codzienne zadania.
+            </p>
 
             <button type="button" id="pokazFormularz">
                 + Dodaj notatkę
             </button>
 
+
             <form id="formularzNotatki" style="display: none;">
 
-                <label for="tytul">Tytuł:</label>
-                <input
-                    type="text"
-                    name="tytul"
-                    id="tytul"
-                    maxlength="40"
-                >
+                <label for="tytul">Tytuł notatki:</label>
 
-                <p id="licznikTytulu">0/40</p>
-                <p id="bladTytulu"></p>
+                <div class="poleTytulu">
+
+                    <input
+                        type="text"
+                        name="tytul"
+                        id="tytul"
+                        maxlength="40"
+                        placeholder="Wpisz tytuł..."
+                    >
+
+                    <span id="licznikTytulu">0/40</span>
+
+                </div>
+
+                <p id="bladTytulu" class="komunikat"></p>
 
 
                 <label for="tresc">Treść notatki:</label>
+
                 <textarea
                     name="tresc"
                     id="tresc"
                     maxlength="500"
                     rows="5"
+                    placeholder="Zapisz tutaj swoje myśli..."
                 ></textarea>
 
-                <p id="bladTresci"></p>
+                <p id="bladTresci" class="komunikat"></p>
 
 
-                <label for="kategoria">Kategoria:</label>
+                <label for="kategoria">▤ Kategoria:</label>
 
                 <select name="kategoria" id="kategoria">
                     <option value="">Wybierz kategorię</option>
@@ -72,11 +93,11 @@
                     <option value="INNE">Inne</option>
                 </select>
 
-                <p id="bladKategorii"></p>
+                <p id="bladKategorii" class="komunikat"></p>
 
 
                 <button type="submit" id="addNote">
-                    ZAPISZ
+                    Zapisz notatkę
                 </button>
 
             </form>
@@ -88,18 +109,28 @@
 
             <h2>Wyszukaj i filtruj</h2>
 
-            <div>
+            <p class="opisSekcji">
+                Znajdź szybko potrzebne informacje.
+            </p>
 
-                <label for="szukajDanych">Szukaj notatek:</label>
+            <div class="filtry">
 
-                <input
-                    type="search"
-                    name="szukajDanych"
-                    id="szukajDanych"
-                >
+                <label for="szukajDanych">⌕ Szukaj notatek:</label>
+
+                <div class="poleWyszukiwania">
 
 
-                <label for="filtrujKategorie">Filtruj kategorię:</label>
+                    <input
+                        type="search"
+                        name="szukajDanych"
+                        id="szukajDanych"
+                        placeholder="Wpisz tytuł lub treść..."
+                    >
+
+                </div>
+
+
+                <label for="filtrujKategorie">▤ Filtruj kategorię:</label>
 
                 <select name="filtrujKategorie" id="filtrujKategorie">
                     <option value="">Wszystkie kategorie</option>
@@ -119,11 +150,27 @@
 
         <section class="notesSide">
 
-            <h2>Twoje notatki</h2>
+            <div class="naglowekNotatek">
+
+                <div>
+                    <h2>Twoje notatki</h2>
+
+                    <p class="opisSekcji">
+                        Wszystkie zapisane pomysły w jednym miejscu.
+                    </p>
+                </div>
+
+                <div class="statystyka">
+                    Liczba notatek:
+                    <span id="liczbaNotatek">1</span>
+                </div>
+
+            </div>
+
 
             <div class="tablica">
 
-                <div class="notatka szkola">
+                <article class="notatka szkola">
 
                     <h3>Nauka HTML i CSS</h3>
 
@@ -141,7 +188,7 @@
                         Usuń
                     </button>
 
-                </div>
+                </article>
 
             </div>
 
@@ -149,7 +196,9 @@
 
 
         <footer class="footer">
-            <p>&copy; RetroNotes | ADAM SADOWSKI</p>
+
+            <p>&copy; 2026 RetroNotes | Twój osobisty organizer.</p>
+
         </footer>
 
     </div>
@@ -158,4 +207,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
