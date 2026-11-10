@@ -233,6 +233,7 @@ button:disabled {
     max-width: 100%;
     font-size: 14px;
     line-height: 1.5;
+    overflow: hidden; 
     overflow-wrap: anywhere;
     word-break: break-word;
 }

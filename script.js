@@ -108,7 +108,7 @@ $(function() {
         });
 
         $("#liczbaNotatek").text(
-            "Znaleziono: " + znalezione + " z " + wszystkie + " notatek"
+            "Znaleziono: " + znalezione + " / " + wszystkie + " notatek"
         );
 
     }
