@@ -342,3 +342,7 @@ button:disabled {
     border: 3px solid #6F9993;
     border-radius: 8px;
 }
+
+.pelnaTresc {
+    display: none;
+}
