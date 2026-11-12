@@ -28,10 +28,11 @@ body {
     grid-area: header;
     background-color: #55445F;
     color: #F2D58A;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     border: 3px solid #6F9993;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
 }
 
 .logo {
@@ -60,7 +61,8 @@ body {
     background-color: #F8F0E1;
     padding: 20px;
     border: 3px solid #6F9993;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
 }
 
 .rightSide {
@@ -68,7 +70,8 @@ body {
     background-color: #E2EBDD;
     padding: 20px;
     border: 3px solid #6F9993;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
 }
 
 .notesSide {
@@ -76,7 +79,8 @@ body {
     background-color: #F8F0E1;
     padding: 20px;
     border: 3px solid #6F9993;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
 }
 
 h2 {
@@ -88,9 +92,11 @@ h2 {
     color: #554B5C;
     font-size: 14px;
     margin-bottom: 15px;
+    line-height: 1.5;
 }
 
-form, .filtry {
+form,
+.filtry {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -99,28 +105,48 @@ form, .filtry {
 label {
     font-weight: bold;
     font-size: 14px;
+    color: #55445F;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     width: 100%;
-    padding: 10px;
+    padding: 11px;
     border: 2px solid #8BA99C;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #FFFCF5;
+    color: #443A4A;
+    font-family: Arial, sans-serif;
+    transition: 0.2s;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
+    border-color: #66536F;
+    box-shadow: 0 0 0 3px rgba(102, 83, 111, 0.12);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
     border-color: #66536F;
 }
 
 textarea {
     resize: vertical;
     min-height: 100px;
+    line-height: 1.5;
 }
 
 .poleTytulu {
     position: relative;
+}
+
+#tytul {
+    padding-right: 55px;
 }
 
 #licznikTytulu {
@@ -137,11 +163,12 @@ textarea {
     width: 100%;
 }
 
-.poleWyszukiwania input {
+#szukajDanych {
     padding-left: 40px;
 }
 
-.ikonaPola {
+.poleWyszukiwania::before {
+    content: "⌕";
     position: absolute;
     left: 13px;
     top: 50%;
@@ -151,31 +178,60 @@ textarea {
     pointer-events: none;
 }
 
+#bladTytulu,
+#bladTresci,
+#bladKategorii {
+    margin: 0;
+    font-size: 12px;
+    color: #C44747;
+}
+
 button {
-    padding: 10px;
+    padding: 10px 14px;
     background-color: #66536F;
     color: white;
     border: 2px solid #493D50;
-    border-radius: 4px;
+    border-radius: 7px;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 button:hover {
     background-color: #80698B;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-#pokazFormularz {
-    background-color: #6F9993;
-}
-
-#addNote {
-    background-color: #D9826B;
+button:active {
+    transform: translateY(0);
 }
 
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+#pokazFormularz {
+    background-color: #6F9993;
+    border-color: #52766F;
+}
+
+#pokazFormularz:hover {
+    background-color: #82AAA2;
+}
+
+#addNote {
+    background-color: #D9826B;
+    border-color: #B96350;
+}
+
+#addNote:hover {
+    background-color: #E69A85;
+}
+
+#formularzNotatki {
+    margin-top: 20px;
 }
 
 .naglowekNotatek {
@@ -187,162 +243,203 @@ button:disabled {
 }
 
 .statystyka {
-    padding: 8px 12px;
+    padding: 10px 14px;
     background-color: #E9D9B7;
     border: 2px solid #B9855B;
-    border-radius: 4px;
+    border-radius: 8px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .tablica {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    background-color: #E9E1D2;
-    border: 2px dashed #B9855B;
-    border-radius: 8px;
+    gap: 25px;
+    padding: 30px;
+    min-height: 350px;
+    background: #B98255;
+    background-image: radial-gradient(#9B653F 1px, transparent 1px);
+    background-size: 8px 8px;
+    border: 12px solid #80502F;
+    border-radius: 10px;
+    box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.3);
 }
 
 .notatka {
     min-width: 0;
     width: 100%;
-    min-height: 220px;
-    padding: 15px;
+    min-height: 230px;
+    padding: 35px 16px 16px;
     border: 2px solid;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 12px;
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
     overflow-wrap: anywhere;
+    position: relative;
+    transition: 0.3s;
+}
+
+.notatka:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.notatka:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.notatka:nth-child(odd):hover,
+.notatka:nth-child(even):hover {
+    transform: translateY(-5px) rotate(0deg);
+}
+
+.notatka:hover {
+    box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.25);
+}
+
+.notatka::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #D94B4B;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.notatka.szkola::before {
+    background: #D6A900;
+}
+
+.notatka.dom::before {
+    background: #419B79;
+}
+
+.notatka.praca::before {
+    background: #9061B5;
+}
+
+.notatka.zakupy::before {
+    background: #D66A50;
+}
+
+.notatka.finanse::before {
+    background: #657BC7;
+}
+
+.notatka.zdrowie::before {
+    background: #D66B88;
+}
+
+.notatka.inne::before {
+    background: #898273;
+}
+
+.notatka.szkola {
+    background-color: #FFF2B2;
+    border-color: #D6A900;
+}
+
+.notatka.dom {
+    background-color: #CDE8D8;
+    border-color: #419B79;
+}
+
+.notatka.praca {
+    background-color: #E2D4F0;
+    border-color: #9061B5;
+}
+
+.notatka.zakupy {
+    background-color: #F8D5C8;
+    border-color: #D66A50;
+}
+
+.notatka.finanse {
+    background-color: #D9E0F5;
+    border-color: #657BC7;
+}
+
+.notatka.zdrowie {
+    background-color: #F5D5DF;
+    border-color: #D66B88;
+}
+
+.notatka.inne {
+    background-color: #E5E0D5;
+    border-color: #898273;
 }
 
 .notatka h3 {
+    width: 100%;
     margin: 0;
-    min-width: 0;
-    max-width: 100%;
-    font-size: 18px;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    font-size: 19px;
+    color: #443A4A;
+    border-bottom: 2px dashed rgba(68, 58, 74, 0.25);
+    padding-bottom: 8px;
+}
+
+.notatka > span {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #55445F;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 .notatka p {
+    width: 100%;
     margin: 0;
-    min-width: 0;
-    max-width: 100%;
     font-size: 14px;
     line-height: 1.5;
-    overflow: hidden; 
+    color: #514653;
+    white-space: pre-wrap;
     overflow-wrap: anywhere;
-    word-break: break-word;
-}
-
-.notatka span {
-    align-self: flex-start;
-    padding: 4px 8px;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 3px;
 }
 
 .notatka button {
     width: 100%;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .notatka .edycja {
-    background-color: #66536F;
+    background-color: #6F9993;
+    border-color: #52766F;
+}
+
+.notatka .edycja:hover {
+    background-color: #82AAA2;
 }
 
 .notatka .usun {
-    background-color: #B85D58;
+    background-color: #D9826B;
+    border-color: #B96350;
 }
 
-.notatka:hover {
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
-}
-
-.notatka.szkola {
-    background-color: #FFE58A;
-    border-color: #D6A900;
-}
-
-.notatka.szkola span {
-    background-color: #D6A900;
-    color: #30283A;
-}
-
-.notatka.dom {
-    background-color: #A9E5CF;
-    border-color: #419B79;
-}
-
-.notatka.dom span {
-    background-color: #419B79;
-    color: #FFFFFF;
-}
-
-.notatka.praca {
-    background-color: #D6B8F0;
-    border-color: #9061B5;
-}
-
-.notatka.praca span {
-    background-color: #9061B5;
-    color: #FFFFFF;
-}
-
-.notatka.zakupy {
-    background-color: #FFB6A3;
-    border-color: #D66A50;
-}
-
-.notatka.zakupy span {
-    background-color: #D66A50;
-    color: #FFFFFF;
-}
-
-.notatka.finanse {
-    background-color: #B8C8FF;
-    border-color: #657BC7;
-}
-
-.notatka.finanse span {
-    background-color: #657BC7;
-    color: #FFFFFF;
-}
-
-.notatka.zdrowie {
-    background-color: #FFB8C8;
-    border-color: #D66B88;
-}
-
-.notatka.zdrowie span {
-    background-color: #D66B88;
-    color: #FFFFFF;
-}
-
-.notatka.inne {
-    background-color: #D5D0C5;
-    border-color: #898273;
-}
-
-.notatka.inne span {
-    background-color: #898273;
-    color: #FFFFFF;
+.notatka .usun:hover {
+    background-color: #E69A85;
 }
 
 .footer {
     grid-area: footer;
     background-color: #55445F;
-    color: white;
+    color: #F2D58A;
     text-align: center;
     padding: 15px;
     border: 3px solid #6F9993;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
 }
 
-.pelnaTresc {
-    display: none;
+.footer p {
+    margin: 5px 0;
 }

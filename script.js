@@ -15,11 +15,11 @@ $(function() {
 
     $("#pokazFormularz").click(function() {
         if (formularzWidoczny === false) {
-            $("#formularzNotatki").show(400);
+            $("#formularzNotatki").show(600);
             $(this).text("Schowaj formularz");
             formularzWidoczny = true;
         } else {
-            $("#formularzNotatki").hide(400);
+            $("#formularzNotatki").hide(600);
             $(this).text("+ Dodaj notatkę");
             formularzWidoczny = false;
         }
@@ -139,9 +139,9 @@ $(function() {
             trescNotatki.addClass("pelnaTresc");
             trescNotatki.text(tresc);
 
-            nowaNotatka.click(function() {
+             tytulNotatki.click(function() {
                 trescNotatki.toggle();
-            });
+             });
 
             let przyciskEdycji = $("<button>");
             przyciskEdycji.attr("type", "button");
