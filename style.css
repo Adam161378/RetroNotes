@@ -1,14 +1,13 @@
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    padding: 20px;
-    background-color: #E9E1D2;
-    font-family: Arial, sans-serif;
-    color: #443A4A;
+    padding: 25px;
+    background-color: #E9DDC7;
+    font-family: Georgia, serif;
+    color: #49382D;
 }
 
 .container {
@@ -21,77 +20,99 @@ body {
         "leftSide rightSide"
         "notesSide notesSide"
         "footer footer";
-    gap: 15px;
+    gap: 20px;
 }
 
 .header {
     grid-area: header;
-    background-color: #55445F;
-    color: #F2D58A;
-    padding: 25px;
+    position: relative;
+    padding: 30px;
+    background-color: #6B4938;
+    color: #F3DFB5;
     text-align: center;
-    border: 3px solid #6F9993;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
+    border: 4px solid #49382D;
+    border-radius: 8px;
+    box-shadow: 5px 5px 0 #B99B72;
 }
 
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .logoIcon {
-    font-size: 32px;
+    font-size: 35px;
+    color: #D5B77A;
 }
 
 .header h1 {
     margin: 5px 0;
-    font-size: 36px;
+    font-size: 38px;
+    letter-spacing: 2px;
 }
 
 .header p {
-    margin: 5px 0 0;
-    color: #FFFFFF;
+    margin: 10px 0 0;
+    color: #E9DDC7;
+    font-style: italic;
+}
+
+.darkMode {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px 15px;
+    background-color: #D5B77A;
+    color: #49382D;
+    border: 2px solid #49382D;
+    border-radius: 5px;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.darkMode:hover {
+    background-color: #78805A;
+    color: white;
+}
+
+.leftSide,
+.rightSide,
+.notesSide {
+    padding: 25px;
+    border: 2px solid #B99B72;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 rgba(73, 56, 45, 0.12);
 }
 
 .leftSide {
     grid-area: leftSide;
-    background-color: #F8F0E1;
-    padding: 20px;
-    border: 3px solid #6F9993;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
+    background-color: #F5EBD8;
 }
 
 .rightSide {
     grid-area: rightSide;
-    background-color: #E2EBDD;
-    padding: 20px;
-    border: 3px solid #6F9993;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
+    background-color: #E6E4D0;
 }
 
 .notesSide {
     grid-area: notesSide;
-    background-color: #F8F0E1;
-    padding: 20px;
-    border: 3px solid #6F9993;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
+    background-color: #F5EBD8;
 }
 
 h2 {
     margin-top: 0;
-    color: #55445F;
+    color: #6B4938;
+    font-size: 23px;
 }
 
 .opisSekcji {
-    color: #554B5C;
+    color: #76634F;
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     line-height: 1.5;
 }
 
@@ -99,45 +120,38 @@ form,
 .filtry {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 label {
     font-weight: bold;
     font-size: 14px;
-    color: #55445F;
+    color: #6B4938;
 }
 
 input,
 textarea,
 select {
     width: 100%;
-    padding: 11px;
-    border: 2px solid #8BA99C;
-    border-radius: 8px;
+    padding: 12px;
+    border: 2px solid #B99B72;
+    border-radius: 5px;
     background-color: #FFFCF5;
-    color: #443A4A;
-    font-family: Arial, sans-serif;
-    transition: 0.2s;
+    color: #49382D;
+    font-family: Georgia, serif;
+    font-size: 14px;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #66536F;
-    box-shadow: 0 0 0 3px rgba(102, 83, 111, 0.12);
-}
-
-input:hover,
-textarea:hover,
-select:hover {
-    border-color: #66536F;
+    border-color: #78805A;
 }
 
 textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 110px;
     line-height: 1.5;
 }
 
@@ -154,7 +168,7 @@ textarea {
     right: 10px;
     bottom: 8px;
     font-size: 12px;
-    color: #66536F;
+    color: #78805A;
     font-weight: bold;
 }
 
@@ -174,8 +188,7 @@ textarea {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #66536F;
-    pointer-events: none;
+    color: #78805A;
 }
 
 #bladTytulu,
@@ -183,28 +196,27 @@ textarea {
 #bladKategorii {
     margin: 0;
     font-size: 12px;
-    color: #C44747;
+    color: #873F43;
 }
 
 button {
-    padding: 10px 14px;
-    background-color: #66536F;
-    color: white;
-    border: 2px solid #493D50;
-    border-radius: 7px;
+    padding: 11px 15px;
+    background-color: #78805A;
+    color: #FFFFFF;
+    border: 2px solid #5C6343;
+    border-radius: 5px;
     cursor: pointer;
+    font-family: Georgia, serif;
     font-weight: bold;
     transition: 0.2s;
 }
 
 button:hover {
-    background-color: #80698B;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-color: #626B48;
 }
 
 button:active {
-    transform: translateY(0);
+    transform: scale(0.98);
 }
 
 button:disabled {
@@ -213,21 +225,17 @@ button:disabled {
 }
 
 #pokazFormularz {
-    background-color: #6F9993;
-    border-color: #52766F;
-}
-
-#pokazFormularz:hover {
-    background-color: #82AAA2;
+    background-color: #78805A;
+    border-color: #5C6343;
 }
 
 #addNote {
-    background-color: #D9826B;
-    border-color: #B96350;
+    background-color: #873F43;
+    border-color: #682F32;
 }
 
 #addNote:hover {
-    background-color: #E69A85;
+    background-color: #6F3034;
 }
 
 #formularzNotatki {
@@ -238,48 +246,49 @@ button:disabled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .statystyka {
-    padding: 10px 14px;
-    background-color: #E9D9B7;
-    border: 2px solid #B9855B;
-    border-radius: 8px;
+    padding: 12px 15px;
+    background-color: #E5D2A8;
+    border: 2px solid #B99B72;
+    border-radius: 5px;
     font-weight: bold;
+    color: #6B4938;
     white-space: nowrap;
 }
 
 .tablica {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 25px;
-    padding: 30px;
+    gap: 30px;
+    padding: 35px;
     min-height: 350px;
-    background: #B98255;
-    background-image: radial-gradient(#9B653F 1px, transparent 1px);
-    background-size: 8px 8px;
-    border: 12px solid #80502F;
-    border-radius: 10px;
-    box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.3);
+    background-color: #9B704D;
+    background-image: radial-gradient(#805638 1px, transparent 1px);
+    background-size: 9px 9px;
+    border: 12px solid #6B4938;
+    border-radius: 5px;
+    box-shadow: 5px 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 .notatka {
-    min-width: 0;
+    position: relative;
     width: 100%;
+    min-width: 0;
     min-height: 230px;
     padding: 35px 16px 16px;
-    border: 2px solid;
-    border-radius: 8px;
+    border: 2px solid #B99B72;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.18);
     overflow-wrap: anywhere;
-    position: relative;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .notatka:nth-child(odd) {
@@ -290,107 +299,104 @@ button:disabled {
     transform: rotate(2deg);
 }
 
-.notatka:nth-child(odd):hover,
-.notatka:nth-child(even):hover {
-    transform: translateY(-5px) rotate(0deg);
-}
-
 .notatka:hover {
-    box-shadow: 5px 8px 12px rgba(0, 0, 0, 0.25);
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 6px 8px 12px rgba(0, 0, 0, 0.25);
 }
 
 .notatka::before {
     content: "";
     position: absolute;
-    top: 8px;
+    top: 9px;
     left: 50%;
     transform: translateX(-50%);
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    background: #D94B4B;
+    background-color: #873F43;
+    border: 2px solid #682F32;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-.notatka.szkola::before {
-    background: #D6A900;
-}
-
-.notatka.dom::before {
-    background: #419B79;
-}
-
-.notatka.praca::before {
-    background: #9061B5;
-}
-
-.notatka.zakupy::before {
-    background: #D66A50;
-}
-
-.notatka.finanse::before {
-    background: #657BC7;
-}
-
-.notatka.zdrowie::before {
-    background: #D66B88;
-}
-
-.notatka.inne::before {
-    background: #898273;
-}
-
 .notatka.szkola {
-    background-color: #FFF2B2;
-    border-color: #D6A900;
+    background-color: #F3E3A6;
+    border-color: #C6A64E;
 }
 
 .notatka.dom {
-    background-color: #CDE8D8;
-    border-color: #419B79;
+    background-color: #D8DFC0;
+    border-color: #78805A;
 }
 
 .notatka.praca {
-    background-color: #E2D4F0;
-    border-color: #9061B5;
+    background-color: #E5D3C2;
+    border-color: #A77B5B;
 }
 
 .notatka.zakupy {
-    background-color: #F8D5C8;
-    border-color: #D66A50;
+    background-color: #F0D0BD;
+    border-color: #C47B5B;
 }
 
 .notatka.finanse {
-    background-color: #D9E0F5;
-    border-color: #657BC7;
+    background-color: #D8D9C9;
+    border-color: #858B70;
 }
 
 .notatka.zdrowie {
-    background-color: #F5D5DF;
-    border-color: #D66B88;
+    background-color: #EBCFD0;
+    border-color: #B66D72;
 }
 
 .notatka.inne {
-    background-color: #E5E0D5;
-    border-color: #898273;
+    background-color: #E5DDCB;
+    border-color: #A99B80;
+}
+
+.notatka.szkola::before {
+    background-color: #D5A928;
+}
+
+.notatka.dom::before {
+    background-color: #78805A;
+}
+
+.notatka.praca::before {
+    background-color: #A77B5B;
+}
+
+.notatka.zakupy::before {
+    background-color: #C47B5B;
+}
+
+.notatka.finanse::before {
+    background-color: #858B70;
+}
+
+.notatka.zdrowie::before {
+    background-color: #B66D72;
+}
+
+.notatka.inne::before {
+    background-color: #A99B80;
 }
 
 .notatka h3 {
     width: 100%;
     margin: 0;
-    font-size: 19px;
-    color: #443A4A;
-    border-bottom: 2px dashed rgba(68, 58, 74, 0.25);
     padding-bottom: 8px;
+    border-bottom: 2px dashed rgba(73, 56, 45, 0.3);
+    color: #49382D;
+    font-size: 19px;
 }
 
 .notatka > span {
     display: inline-block;
     width: fit-content;
     padding: 5px 10px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    color: #55445F;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #6B4938;
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -399,9 +405,9 @@ button:disabled {
 .notatka p {
     width: 100%;
     margin: 0;
+    color: #49382D;
     font-size: 14px;
     line-height: 1.5;
-    color: #514653;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
@@ -412,34 +418,82 @@ button:disabled {
 }
 
 .notatka .edycja {
-    background-color: #6F9993;
-    border-color: #52766F;
-}
-
-.notatka .edycja:hover {
-    background-color: #82AAA2;
+    background-color: #78805A;
+    border-color: #5C6343;
 }
 
 .notatka .usun {
-    background-color: #D9826B;
-    border-color: #B96350;
+    background-color: #873F43;
+    border-color: #682F32;
 }
 
 .notatka .usun:hover {
-    background-color: #E69A85;
+    background-color: #6F3034;
 }
 
 .footer {
     grid-area: footer;
-    background-color: #55445F;
-    color: #F2D58A;
+    padding: 18px;
+    background-color: #6B4938;
+    color: #F3DFB5;
     text-align: center;
-    padding: 15px;
-    border: 3px solid #6F9993;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(68, 58, 74, 0.12);
+    border: 3px solid #49382D;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0 #B99B72;
 }
 
 .footer p {
     margin: 5px 0;
+}
+
+body.dark-mode {
+    background-color: #191720;
+    color: #F3EDE4;
+}
+
+.dark-mode .header,
+.dark-mode .footer {
+    background-color: #30263A;
+    border-color: #557C78;
+}
+
+.dark-mode .leftSide,
+.dark-mode .rightSide,
+.dark-mode .notesSide {
+    background-color: #292532;
+    border-color: #557C78;
+}
+
+.dark-mode h2 {
+    color: #F2D58A;
+}
+
+.dark-mode p,
+.dark-mode label {
+    color: #F3EDE4;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background-color: #383341;
+    color: #FFFFFF;
+    border-color: #557C78;
+}
+
+.dark-mode button {
+    background-color: #80698B;
+    color: white;
+    border-color: #55445F;
+}
+
+.dark-mode .statystyka {
+    background-color: #383341;
+    color: #F2D58A;
+    border-color: #80698B;
+}
+
+.dark-mode .tablica {
+    background-color: #191720;
+    border-color: #80698B;
 }

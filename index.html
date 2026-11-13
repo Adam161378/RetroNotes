@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -28,10 +28,13 @@
                 <h1>RetroNotes</h1>
             </div>
 
+            <button type="button" class="darkMode">
+                🌙 Tryb ciemny
+            </button>
+
             <p>Twoja przestrzeń na pomysły, plany i ważne informacje.</p>
 
         </header>
-
 
         <section class="leftSide">
 
@@ -45,8 +48,7 @@
                 + Dodaj notatkę
             </button>
 
-
-            <form id="formularzNotatki" style="display: none;">
+            <form id="formularzNotatki">
 
                 <label for="tytul">Tytuł notatki:</label>
 
@@ -66,7 +68,6 @@
 
                 <p id="bladTytulu" class="komunikat"></p>
 
-
                 <label for="tresc">Treść notatki:</label>
 
                 <textarea
@@ -78,7 +79,6 @@
                 ></textarea>
 
                 <p id="bladTresci" class="komunikat"></p>
-
 
                 <label for="kategoria">▤ Kategoria:</label>
 
@@ -95,7 +95,6 @@
 
                 <p id="bladKategorii" class="komunikat"></p>
 
-
                 <button type="submit" id="addNote">
                     Zapisz notatkę
                 </button>
@@ -103,7 +102,6 @@
             </form>
 
         </section>
-
 
         <section class="rightSide">
 
@@ -119,7 +117,6 @@
 
                 <div class="poleWyszukiwania">
 
-
                     <input
                         type="search"
                         name="szukajDanych"
@@ -128,7 +125,6 @@
                     >
 
                 </div>
-
 
                 <label for="filtrujKategorie">▤ Filtruj kategorię:</label>
 
@@ -146,7 +142,6 @@
             </div>
 
         </section>
-
 
         <section class="notesSide">
 
@@ -166,7 +161,6 @@
                 </div>
 
             </div>
-
 
             <div class="tablica">
 
@@ -194,7 +188,6 @@
 
         </section>
 
-
         <footer class="footer">
 
             <p>&copy; 2026 RetroNotes | Twój osobisty organizer.</p>
@@ -203,9 +196,8 @@
 
     </div>
 
-
     <script src="script.js"></script>
 
 </body>
-
 </html>
+```
