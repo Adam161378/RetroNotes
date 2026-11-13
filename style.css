@@ -497,3 +497,44 @@ body.dark-mode {
     background-color: #191720;
     border-color: #80698B;
 }
+.middleSection {
+    width: 60%;
+    margin: 70px auto;
+    padding: 35px;
+    text-align: center;
+    background-color: #f5e6c8;
+    border: 2px solid #c4a77d;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(70, 45, 25, 0.15);
+}
+
+.middleSection img {
+    width: 280px;
+    height: 220px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.middleSection h2 {
+    margin-bottom: 15px;
+    color: #60452f;
+}
+
+.middleSection p {
+    margin-bottom: 25px;
+    color: #80664d;
+}
+
+.middleSection a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #806044;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.middleSection a:hover {
+    background-color: #60452f;
+}
