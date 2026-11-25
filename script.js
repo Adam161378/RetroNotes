@@ -1,35 +1,31 @@
-$(function() {
-
+$(function () {
     let formularzWidoczny = false;
     let edytowanaNotatka = null;
 
-    let dostepneKategorie = [
+    const dostepneKategorie = [
         "DOM", "PRACA", "SZKOLA", "ZAKUPY",
         "FINANSE", "ZDROWIE", "INNE"
     ];
 
-    $("#pokazFormularz").click(function() {
-        if (formularzWidoczny) {
-            $("#formularzNotatki").hide(600);
-            $(this).text("+ Dodaj notatkę");
-        } else {
-            $("#formularzNotatki").show(600);
-            $(this).text("Schowaj formularz");
-        }
-        formularzWidoczny = !formularzWidoczny;
-    });
+    function aktualizujPrzycisk() {
+        const ok =
+            $("#tytul").val().trim().length > 0 &&
+            $("#tresc").val().trim().length > 0 &&
+            dostepneKategorie.includes($("#kategoria").val());
+
+        $("#addNote").prop("disabled", !ok);
+    }
 
     function filtrujNotatki() {
-        let szukane = $("#szukajDanych").val().toLowerCase();
-        let kategoria = $("#filtrujKategorie").val().toLowerCase();
+        const szukane = $("#szukajDanych").val().toLowerCase().trim();
+        const kategoria = $("#filtrujKategorie").val().toLowerCase();
         let znalezione = 0;
-        let wszystkie = $(".notatka").length;
+        const wszystkie = $(".notatka").length;
 
-        $(".notatka").each(function() {
-            let tekst = $(this).text().toLowerCase();
-            let klasy = $(this).attr("class");
-            let pasujeTekst = tekst.includes(szukane);
-            let pasujeKategoria = kategoria === "" || klasy.split(" ").includes(kategoria);
+        $(".notatka").each(function () {
+            const tekst = $(this).text().toLowerCase();
+            const pasujeTekst = tekst.includes(szukane);
+            const pasujeKategoria = kategoria === "" || $(this).hasClass(kategoria);
 
             if (pasujeTekst && pasujeKategoria) {
                 $(this).show();
@@ -44,41 +40,69 @@ $(function() {
         );
     }
 
-    $("#szukajDanych").on("input", filtrujNotatki);
-    $("#filtrujKategorie").change(filtrujNotatki);
+    $("#pokazFormularz").on("click", function () {
+        formularzWidoczny = !formularzWidoczny;
+        $("#formularzNotatki").toggle(800);
+        $(this).text(formularzWidoczny ? "Schowaj formularz" : "+ Dodaj notatkę");
+    });
 
-    $("#kategoria").change(function() {
-        if ($(this).val() !== "") {
+    $("#szukajDanych").on("input", filtrujNotatki);
+    $("#filtrujKategorie").on("change", filtrujNotatki);
+
+    $("#tytul").on("input", function () {
+        const dl = $(this).val().trim().length;
+        $("#licznikTytulu").text(dl + "/40");
+
+        if (dl === 0) {
+            $("#bladTytulu").text("Tytuł jest wymagany").css("color", "red");
+        } else if (dl > 40) {
+            $("#bladTytulu").text("Za dużo znaków").css("color", "red");
+        } else {
+            $("#bladTytulu").text("OK").css("color", "green");
+        }
+        aktualizujPrzycisk();
+    });
+
+    $("#tresc").on("input", function () {
+        const dl = $(this).val().trim().length;
+
+        if (dl === 0) {
+            $("#bladTresci").text("Treść jest wymagana").css("color", "red");
+        } else if (dl > 500) {
+            $("#bladTresci").text("Za dużo znaków").css("color", "red");
+        } else {
+            $("#bladTresci").text("OK").css("color", "green");
+        }
+        aktualizujPrzycisk();
+    });
+
+    $("#kategoria").on("change", function () {
+        if (dostepneKategorie.includes($(this).val())) {
             $("#bladKategorii").text("OK").css("color", "green");
         } else {
             $("#bladKategorii").text("Wybierz kategorię").css("color", "red");
         }
+        aktualizujPrzycisk();
     });
 
-    $("#formularzNotatki").submit(function(e) {
+    $("#formularzNotatki").on("submit", function (e) {
         e.preventDefault();
 
-        let tytul = $("#tytul").val().trim();
-        let tresc = $("#tresc").val().trim();
-        let kategoria = $("#kategoria").val();
-        let nazwaKategorii = $("#kategoria option:selected").text();
+        const tytul = $("#tytul").val().trim();
+        const tresc = $("#tresc").val().trim();
+        const kategoria = $("#kategoria").val();
+        const nazwaKategorii = $("#kategoria option:selected").text();
         let poprawny = true;
 
-        if (tytul === "") {
-            $("#bladTytulu").text("Tytuł jest wymagany").css("color", "red");
-            poprawny = false;
-        } else if (tytul.length > 40) {
-            $("#bladTytulu").text("Tytuł może mieć maksymalnie 40 znaków").css("color", "red");
+        if (!tytul || tytul.length > 40) {
+            $("#bladTytulu").text("Tytuł musi mieć od 1 do 40 znaków").css("color", "red");
             poprawny = false;
         } else {
             $("#bladTytulu").text("");
         }
 
-        if (tresc === "") {
-            $("#bladTresci").text("Treść jest wymagana").css("color", "red");
-            poprawny = false;
-        } else if (tresc.length > 500) {
-            $("#bladTresci").text("Treść może mieć maksymalnie 500 znaków").css("color", "red");
+        if (!tresc || tresc.length > 500) {
+            $("#bladTresci").text("Treść musi mieć od 1 do 500 znaków").css("color", "red");
             poprawny = false;
         } else {
             $("#bladTresci").text("");
@@ -88,118 +112,68 @@ $(function() {
             $("#bladKategorii").text("Kategoria jest wymagana").css("color", "red");
             poprawny = false;
         } else {
-            $("#bladKategorii").text("OK").css("color", "green");
+            $("#bladKategorii").text("");
         }
 
-        if (!poprawny) {
-            return;
-        }
+        if (!poprawny) return;
 
-        if (edytowanaNotatka !== null) {
+        const klasaKategorii = kategoria.toLowerCase();
+
+        if (edytowanaNotatka) {
             edytowanaNotatka.find("h3").text(tytul);
             edytowanaNotatka.find("span").text(nazwaKategorii);
             edytowanaNotatka.find("p").text(tresc);
-
-            edytowanaNotatka.removeClass(
-                "dom praca szkola zakupy finanse zdrowie inne"
-            );
-            edytowanaNotatka.addClass(kategoria.toLowerCase());
+            edytowanaNotatka.data("kategoria", kategoria);
+            edytowanaNotatka
+                .removeClass("dom praca szkola zakupy finanse zdrowie inne")
+                .addClass(klasaKategorii);
             edytowanaNotatka = null;
         } else {
-            let nowaNotatka = $("<div>");
-            nowaNotatka.addClass("notatka " + kategoria.toLowerCase());
+            const notatka = $("<div>")
+                .addClass("notatka " + klasaKategorii)
+                .data("kategoria", kategoria);
 
-            let tytulNotatki = $("<h3>").text(tytul);
-            let kategoriaNotatki = $("<span>").text(nazwaKategorii);
-            let trescNotatki = $("<p>").text(tresc);
-
-            tytulNotatki.click(function() {
-                trescNotatki.toggle();
+            const h3 = $("<h3>").text(tytul).on("click", function () {
+                p.toggle();
             });
+            const span = $("<span>").text(nazwaKategorii);
+            const p = $("<p>").text(tresc);
 
-            let przyciskEdycji = $("<button>");
-            przyciskEdycji.attr("type", "button");
-            przyciskEdycji.addClass("edycja");
-            przyciskEdycji.text("Edytuj");
+            const btnEdytuj = $("<button>", { type: "button", class: "edycja", text: "Edytuj" })
+                .on("click", function () {
+                    edytowanaNotatka = notatka;
+                    $("#tytul").val(h3.text());
+                    $("#tresc").val(p.text());
+                    $("#kategoria").val(notatka.data("kategoria"));
+                    $("#licznikTytulu").text(h3.text().length + "/40");
+                    $("#formularzNotatki").show(400);
+                    $("#pokazFormularz").text("Schowaj formularz");
+                    formularzWidoczny = true;
+                    aktualizujPrzycisk();
+                });
 
-            przyciskEdycji.click(function() {
-                edytowanaNotatka = nowaNotatka;
-                $("#tytul").val(tytulNotatki.text());
-                $("#tresc").val(trescNotatki.text());
-                $("#kategoria").val(kategoria.toUpperCase());
-                $("#formularzNotatki").show(400);
-                $("#pokazFormularz").text("Schowaj formularz");
-                formularzWidoczny = true;
-            });
+            const btnUsun = $("<button>", { type: "button", class: "usun", text: "Usuń" })
+                .on("click", function () {
+                    if (edytowanaNotatka === notatka) edytowanaNotatka = null;
+                    notatka.remove();
+                    filtrujNotatki();
+                });
 
-            let przyciskUsuwania = $("<button>");
-            przyciskUsuwania.attr("type", "button");
-            przyciskUsuwania.addClass("usun");
-            przyciskUsuwania.text("Usuń");
-
-            przyciskUsuwania.click(function() {
-                nowaNotatka.remove();
-                if (edytowanaNotatka === nowaNotatka) {
-                    edytowanaNotatka = null;
-                }
-                filtrujNotatki();
-            });
-
-            nowaNotatka.append(
-                tytulNotatki,
-                kategoriaNotatki,
-                trescNotatki,
-                przyciskEdycji,
-                przyciskUsuwania
-            );
-
-            $(".tablica").append(nowaNotatka);
+            notatka.append(h3, span, p, btnEdytuj, btnUsun);
+            $(".tablica").append(notatka);
         }
 
-        $("#tytul").val("");
-        $("#tresc").val("");
-        $("#kategoria").val("");
-
+        $("#tytul, #tresc, #kategoria").val("");
         $("#licznikTytulu").text("0/40");
-
-        $("#bladTytulu").text("");
-        $("#bladTresci").text("");
-        $("#bladKategorii").text("");
-
+        $("#bladTytulu, #bladTresci, #bladKategorii").text("");
+        aktualizujPrzycisk();
         filtrujNotatki();
     });
 
-    $("#tytul").on("input", function() {
-        let dlugosc = $(this).val().length;
-        $("#licznikTytulu").text(dlugosc + "/40");
-
-        if (dlugosc === 0) {
-            $("#bladTytulu").text("Tytuł jest wymagany").css("color", "red");
-            $("#licznikTytulu").css("color", "red");
-        } else if (dlugosc > 40) {
-            $("#bladTytulu").text("Za dużo znaków").css("color", "red");
-            $("#licznikTytulu").css("color", "red");
-        } else {
-            $("#bladTytulu").text("OK").css("color", "green");
-            $("#licznikTytulu").css("color", "green");
-        }
-    });
-
-    $("#tresc").on("input", function() {
-        let dlugosc = $(this).val().trim().length;
-
-        if (dlugosc === 0) {
-            $("#bladTresci").text("Treść jest wymagana").css("color", "red");
-        } else if (dlugosc > 500) {
-            $("#bladTresci").text("Za dużo znaków").css("color", "red");
-        } else {
-            $("#bladTresci").text("OK").css("color", "green");
-        }
-    });
-
-    filtrujNotatki();
-
-    $(".darkMode").on("click", function() {
+    $(".darkMode").on("click", function () {
         $("body").toggleClass("dark-mode");
     });
+
+    aktualizujPrzycisk();
+    filtrujNotatki();
 });
