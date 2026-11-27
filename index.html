@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>RetroNotes | Organizer notatek</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -31,6 +32,7 @@
             <button type="button" class="darkMode">
                 🌙 Tryb ciemny
             </button>
+
             <p>Twoja przestrzeń na pomysły, plany i ważne informacje.</p>
 
         </header>
@@ -65,7 +67,7 @@
 
                 </div>
 
-                <p id="bladTytulu" class="komunikat"></p>
+                <p id="bladTytulu" class="komunikat" aria-live="polite"></p>
 
                 <label for="tresc">Treść notatki:</label>
 
@@ -77,7 +79,7 @@
                     placeholder="Zapisz tutaj swoje myśli..."
                 ></textarea>
 
-                <p id="bladTresci" class="komunikat"></p>
+                <p id="bladTresci" class="komunikat" aria-live="polite"></p>
 
                 <label for="kategoria">▤ Kategoria:</label>
 
@@ -92,7 +94,7 @@
                     <option value="INNE">Inne</option>
                 </select>
 
-                <p id="bladKategorii" class="komunikat"></p>
+                <p id="bladKategorii" class="komunikat" aria-live="polite"></p>
 
                 <button type="submit" id="addNote" disabled>
                     Zapisz notatkę
@@ -156,14 +158,12 @@
 
                 <div class="statystyka">
                     Liczba notatek:
-                    <span id="liczbaNotatek">1</span>
+                    <span id="liczbaNotatek">0</span>
                 </div>
 
             </div>
 
             <div class="tablica">
-
-                
 
             </div>
 
@@ -180,3 +180,4 @@
     <script src="script.js"></script>
 
 </body>
+</html>

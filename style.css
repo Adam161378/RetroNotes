@@ -33,7 +33,7 @@ body {
     text-align: center;
     border: 4px double #D5B77A;
     border-radius: 8px;
-    box-shadow: 5px 5px 0 #B99B72;
+    box-shadow: 0 4px 12px rgba(73, 56, 45, 0.14);
 }
 
 .logo {
@@ -70,7 +70,7 @@ body {
     text-align: center;
     border: 4px double #D5B77A;
     border-radius: 6px;
-    box-shadow: 4px 4px 0 #B99B72;
+    box-shadow: 0 3px 10px rgba(73, 56, 45, 0.12);
 }
 
 .footer p {
@@ -97,7 +97,7 @@ h2 {
     padding: 25px;
     border: 2px solid #B99B72;
     border-radius: 8px;
-    box-shadow: 4px 4px 0 rgba(73, 56, 45, 0.15);
+    box-shadow: 0 3px 10px rgba(73, 56, 45, 0.08);
 }
 
 .leftSide {
@@ -200,7 +200,7 @@ textarea {
 button,
 .middleSection a {
     transition: 0.15s ease;
-    box-shadow: 3px 3px 0 #49382D;
+    box-shadow: 0 2px 4px rgba(73, 56, 45, 0.25);
 }
 
 button {
@@ -221,14 +221,15 @@ button:hover,
 
 button:active,
 .middleSection a:active {
-    transform: translate(3px, 3px);
-    box-shadow: 0 0 0 #49382D;
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(73, 56, 45, 0.2);
 }
 
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
 }
 
 .darkMode {
@@ -277,7 +278,7 @@ button:disabled {
     background-size: 9px 9px;
     border: 12px solid #6B4938;
     border-radius: 5px;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.35);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.22);
 }
 
 .notatka {
@@ -291,7 +292,7 @@ button:disabled {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(73, 56, 45, 0.16);
     overflow-wrap: anywhere;
     transition: 0.2s;
 }
@@ -306,6 +307,7 @@ button:disabled {
 
 .notatka:hover {
     transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 7px 14px rgba(73, 56, 45, 0.2);
 }
 
 .notatka::before {
@@ -319,7 +321,7 @@ button:disabled {
     border-radius: 50%;
     background-color: #873F43;
     border: 2px solid #49382D;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
 }
 
 .notatka.szkola { background-color: #F3E3A6; border-color: #C6A64E; }
@@ -388,7 +390,7 @@ button:disabled {
     background-color: #F5E6C8;
     border: 4px double #B99B72;
     border-radius: 10px;
-    box-shadow: 6px 6px 0 #B99B72;
+    box-shadow: 0 6px 18px rgba(73, 56, 45, 0.12);
 }
 
 .dekoracja {
@@ -407,7 +409,7 @@ button:disabled {
     padding: 10px 10px 30px 10px;
     background-color: #FFFCF5;
     border: 1px solid #B99B72;
-    box-shadow: 4px 4px 0 #D5B77A;
+    box-shadow: 0 4px 10px rgba(73, 56, 45, 0.16);
     filter: sepia(20%);
     transform: rotate(-1.5deg);
 }
@@ -451,63 +453,211 @@ button:disabled {
 }
 
 /* dark mode */
-body.dark-mode {
-    background-color: #191720;
-    color: #F3EDE4;
+
+.dark-mode body {
+    background: #191720;
+    color: #EBD9B5;
 }
 
 .dark-mode .header,
-.dark-mode .footer {
-    background-color: #30263A;
+.dark-mode footer {
+    background: #30263A;
     border-color: #80698B;
+    color: #F3DFB5;
 }
 
 .dark-mode .leftSide,
 .dark-mode .rightSide,
 .dark-mode .notesSide {
-    background-color: #292532;
+    background: #292532;
     border-color: #557C78;
 }
 
 .dark-mode h2 {
-    color: #F2D58A;
+    color: #F2DCA8;
 }
 
 .dark-mode p,
 .dark-mode label {
-    color: #E5C185;
+    color: #EBD9B5;
 }
 
 .dark-mode input,
 .dark-mode textarea,
 .dark-mode select {
-    background-color: #383341;
-    color: #FFFFFF;
-    border-color: #557C78;
-}
-
-.dark-mode button {
-    background-color: #80698B;
-    color: #FFFFFF;
-    border-color: #191720;
-}
-
-.dark-mode .statystyka {
-    background-color: #383341;
-    color: #F2D58A;
+    background: #211F29;
+    color: #F3E6CE;
     border-color: #80698B;
 }
 
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #B7A9C0;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+    border-color: #D5B77A;
+}
+
+.dark-mode button,
+.dark-mode .middleSection a {
+    background: #625078;
+    color: #FFFFFF;
+    border-color: #80698B;
+}
+
+.dark-mode .statystyka {
+    background: #3A3044;
+    border-color: #A58BB5;
+    color: #F3DFB5;
+}
+
 .dark-mode .tablica {
-    background-color: #1E1B26;
+    background-color: #39303B;
     border-color: #80698B;
 }
 
 .dark-mode .notatka {
-    filter: brightness(0.9);
+    filter: brightness(0.95);
 }
 
 .dark-mode .notatka h3,
 .dark-mode .notatka p {
-    color: #3A2B22;
+    color: #49382D;
+}
+
+.dark-mode .middleSection {
+    background: #292532;
+    border-color: #80698B;
+}
+
+.dark-mode .middleSection h2 {
+    color: #F2DCA8;
+}
+
+.dark-mode .middleSection p {
+    color: #EBD9B5;
+}
+
+.dark-mode .dekoracja {
+    color: #D5B77A;
+}
+
+
+/* responsywnosc */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "leftSide"
+            "rightSide"
+            "notesSide"
+            "footer";
+        gap: 15px;
+    }
+
+    .header {
+        padding: 25px 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .darkMode {
+        position: static;
+        margin-top: 15px;
+    }
+
+    .leftSide,
+    .rightSide,
+    .notesSide {
+        padding: 18px;
+        min-width: 0;
+    }
+
+    .naglowekNotatek {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .statystyka {
+        white-space: normal;
+        max-width: 100%;
+    }
+
+    .tablica {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        padding: 20px;
+        gap: 20px;
+        border-width: 8px;
+    }
+
+    .middleSection {
+        width: 90%;
+        margin: 35px auto;
+        padding: 25px 18px;
+    }
+
+    .middleSection img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .header h1 {
+        font-size: 23px;
+        letter-spacing: 1px;
+    }
+
+    .logo {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .leftSide,
+    .rightSide,
+    .notesSide {
+        padding: 14px;
+    }
+
+    .tablica {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 18px;
+        border-width: 6px;
+    }
+
+    .notatka {
+        min-height: 180px;
+    }
+
+    .middleSection {
+        width: 100%;
+        margin: 20px auto;
+        padding: 20px 14px;
+    }
+
+    .middleSection h2 {
+        font-size: 24px;
+    }
+
+    .footer {
+        padding: 14px;
+    }
 }
